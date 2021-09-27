@@ -252,7 +252,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-  return arr.filter((item, i) => i % 2);
+  return arr.filter((_, i) => i % 2 === 1);
 }
 
 
@@ -580,8 +580,12 @@ function getElementByIndexes(arr, indexes) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const divLength = Math.floor(arr.length / 2);
+  if (arr.length % 2 === 0) {
+    return [...arr.slice(divLength), ...arr.slice(0, divLength)];
+  }
+  return [...arr.slice(divLength + 1), arr[divLength], ...arr.slice(0, divLength)];
 }
 
 
