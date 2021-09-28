@@ -210,8 +210,22 @@ function findFirstSingleChar(/* str */) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
-  throw new Error('Not implemented');
+function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
+  let startBrack;
+  let endBrack;
+  if (isStartIncluded === true) {
+    startBrack = '[';
+  }
+  if (isStartIncluded === false) {
+    startBrack = '(';
+  }
+  if (isEndIncluded === true) {
+    endBrack = ']';
+  }
+  if (isEndIncluded === false) {
+    endBrack = ')';
+  }
+  return `${startBrack}${Math.min(a, b)}, ${Math.max(a, b)}${endBrack}`;
 }
 
 
@@ -339,8 +353,8 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
